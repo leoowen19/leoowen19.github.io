@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="css/jquery.js"></script>
+    <script src="css/hammer.js"></script>
+
+    <style>
+        .userData {behavior:url(#default#userdata);}
+        .client {behavior:url(#default#clientCaps);}
+    </style>
+
+    <title>谁能挑战我？</title>
+</head>
+<body class="l_index s_index">
+<div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;">
+</div>
+<div class="container text-center mt60">
+    <div class="buttons ">
+      <img src="Assets/title.png" margin="20,0,0,0">
+        <div id="popover_content"></div>
+        <button id="touch_button" class="btn btn-default btn-lg" data-html="true" data-placement="top" data-toggle="popover" data-container="body" type="button" data-original-title="" title="">
+            <strong>按住</strong>
+        </button>
+    </div>
+</div>
+
+<script>
+
+    var title_content;
+    var $btn = new Hammer(document.getElementById('touch_button'));
+    var pressOptions = {
+
+    };
+    $btn.get('press').set(pressOptions);
+
+    var start_time;
+    var end_time;
+
+    $("#touch_button").on('touchstart', function() {
+        event.preventDefault();
+        $("#touch_button").addClass('active');
+        start_time = new Date().getTime();
+
+    });
+
+
+
+
+    $("#touch_button").on('touchend', function() {
+        event.preventDefault();
+        end_time = new Date().getTime();
+        var just_time = end_time - start_time;
+        just_time = parseFloat(just_time/1000);
+        var text = '';
+        var text2 = '';
+        var title = '';
+        if(just_time >0 && just_time <= 0.6) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了15%的人，请反省下你的智商，</p>';
+            title = '我按出了'+just_time+'秒，我需要反省我的智商...';
+        } else if(just_time > 0.6 && just_time <= 0.8) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了39%的人，你还差得远!</p>';
+            title = '我按出了'+just_time+'秒，我还差得远！';
+        } else if(just_time > 0.8 && just_time <= 0.9) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了69%的人，请继续加油!</p>';
+            title = '我按出了'+just_time+'秒，我还需要继续加油！';
+        } else if(just_time >0.9 && just_time <= 1.0) {
+            text = '<h2 class="po_w">我按出了<strong>'+just_time+'</strong> <small>秒</small></h2><p>近在咫尺！加油！</p>';
+            title = '您按出了'+just_time+'秒，超过了95%的人，离胜利只有一步！';
+        } else if(just_time >= 1 && just_time <= 1.05) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你是完美的</p>';
+            title = '我按出了1.000秒，我爱上了我自己！我超过了99.99%的人，求膜拜...';
+        } else {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>请检测下你的反射弧</p>';
+            title = '我按出了'+just_time+'秒，我需要检测我的反射弧！哈哈哈...';
+        }
+
+        $("#popover_content").html(text)
+        $("#touch_button").removeClass('active');
+        $("#title_content").text(title);
+        var share="老板让我按1秒，我按出了"+$(".po_w strong").text()+"秒,您敢来挑战吗？";
+        $("title").text(share);
+    });
+
+
+</script>
+</body></html>
