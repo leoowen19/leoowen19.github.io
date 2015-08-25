@@ -69,13 +69,17 @@
         } else if(just_time > 0.8 && just_time <= 0.9) {
             text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了69%的人，请继续加油!</p>';
             title = '我按出了'+just_time+'秒，我还需要继续加油！';
-        } else if(just_time >0.9 && just_time <= 1.0) {
-            text = '<h2 class="po_w">我按出了<strong>'+just_time+'</strong> <small>秒</small></h2><p>近在咫尺！加油！</p>';
-            title = '您按出了'+just_time+'秒，超过了95%的人，离胜利只有一步！';
-        } else if(just_time >= 1 && just_time <= 1.05) {
-            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你是完美的</p>';
-            title = '我按出了1.000秒，我爱上了我自己！我超过了99.99%的人，求膜拜...';
-        } else {
+        } else if(just_time >0.9 && just_time < 0.99) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了95%的人，近在咫尺！加油！</p>';
+            title = '我按出了'+just_time+'秒，超过了95%的人，离胜利只有一步！';
+        } else if(just_time >= 0.99 && just_time < 1.01) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了99.99%的人，你是完美的！</p>';
+            title = '我按出了'+just_time+'秒，我爱上了我自己！我超过了99.99%的人，求膜拜...';
+        } else if(just_time >= 1.01 && just_time <= 1.2) {
+            text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>你超过了94%的人，小手请早点拿开</p>';
+            title = '我按出了'+just_time+'秒，稍稍多了一点点！我超过了94%的人...';
+        }
+        else {
             text = '<h2 class="po_w"><strong>'+just_time+'</strong> <small>秒</small></h2><p>请检测下你的反射弧</p>';
             title = '我按出了'+just_time+'秒，我需要检测我的反射弧！哈哈哈...';
         }
@@ -98,5 +102,6 @@
 
     ga('create', 'UA-66676362-1', 'auto');
     ga('send', 'pageview');
+</script>
 
 </body></html>
