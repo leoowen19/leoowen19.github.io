@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="css/jquery.js"></script>
+
+    <style>
+        .userData {behavior:url(#default#userdata);}
+        .client {behavior:url(#default#clientCaps);}
+    </style>
+
+    <title>测测你的吃货等级</title>
+</head>
+
+<body class="l_index s_index">
+<div class="container text-center mt60">
+    <div class="title">
+        <img src="./Assets/title.png" alt="">
+        <p>妖孽遍地，吃货环绕，你到底属于什么等级的吃货，快来测测吧！</p>
+    </div>
+    <img src="./Assets/images.jpg" class="funny-img">
+    <div id="popover_content"></div>
+    <form>
+        <input type="text" class="input-name" name="name" id="height" placeholder="请输入你的身高厘米数"><br>
+        <input type="text" class="input-name" name="name" id="weight" placeholder="请输入你的体重公斤数"><br>
+        <input type="button" class="btn-start" onclick="checkResult()" value="开始测试">
+    </form>
+</div>
+
+<script type="text/javascript">
+    function checkResult() {
+        var height = $('#height').val();
+        var weight = $('#weight').val();
+        if (height !== '' && weight !== '')
+        {
+            var hval = parseInt(height);
+            var wval = parseInt(weight);
+
+            if (hval > 50 && hval < 299 && wval > 15 && wval < 499)
+            {
+                checkNumber(hval, wval);
+            }
+        }
+    }
+
+
+    function checkNumber(hval, wval)
+    {
+        var val = wval/hval;
+        if (val > 0.5)
+        {
+            var p2 = document.getElementById("popover_content");
+            var para = document.createElement("p");
+            var node = document.createTextNode("你的吃货等级： 给你两根金箍棒，你可以吃掉整个地球!");
+            para.appendChild(node);
+            para.className = 'para';
+            p2.appendChild(para);
+            var title = "我的吃货等级： 给你两根金箍棒，你可以吃掉整个地球! 你也来测一测吧";
+            $("title").text(title);
+        }
+        else if (val > 0.45)
+        {
+            var p2 = document.getElementById("popover_content");
+            var para = document.createElement("p");
+            var node = document.createTextNode("你的吃货等级： 把你放在非洲大草原，你将灭绝其他所有生物!");
+            para.appendChild(node);
+            para.className = 'para';
+            p2.appendChild(para);
+            var title = "我的吃货等级： 把你放在非洲大草原，你将灭绝其他所有生物! 你也来测一测吧";
+            $("title").text(title);
+        }
+        else if (val > 0.4)
+        {
+            var p2 = document.getElementById("popover_content");
+            var para = document.createElement("p");
+            var node = document.createTextNode("你的吃货等级： 你左手一只鸡，右手一只鸭，把自己吃成一个胖娃娃!");
+            para.appendChild(node);
+            para.className = 'para';
+            p2.appendChild(para);
+            var title = "我的吃货等级： 你左手一只鸡，右手一只鸭，把自己吃成一个胖娃娃! 你也来测一测吧";
+            $("title").text(title);
+        }
+        else if (val > 0.35)
+        {
+            var p2 = document.getElementById("popover_content");
+            var para = document.createElement("p");
+            var node = document.createTextNode("你的吃货等级： 万千美食，你自取一瓢!");
+            para.appendChild(node);
+            para.className = 'para';
+            p2.appendChild(para);
+            var title = "我的吃货等级： 万千美食，你自取一瓢! 你也来测一测吧";
+            $("title").text(title);
+        }
+        else
+        {
+            var p2 = document.getElementById("popover_content");
+            var para = document.createElement("p");
+            var node = document.createTextNode("你的吃货等级： 为了社会主义的光荣事业，请多吃点!");
+            para.appendChild(node);
+            para.className = 'para';
+            p2.appendChild(para);
+            var title = "我的吃货等级： 为了社会主义的光荣事业，请多吃点! 你也来测一测吧";
+            $("title").text(title);
+        }
+    }
+</script>
+
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66676362-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+</body></html>
