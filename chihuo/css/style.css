@@ -25,6 +25,9 @@
     border-radius: 0;
 }
 
+.funny-img {
+    width: 100%;
+}
 
 body{font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;color:#5E5E5E;}
 a:hover{text-decoration: none;}
